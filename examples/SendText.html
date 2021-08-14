@@ -13,10 +13,10 @@
         <div class="display-4 mb-3">WhatsApp</div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Número</span>
+                <span class="input-group-text">Número +55&nbsp;<img src="https://icons.iconarchive.com/icons/wikipedia/flags/48/BR-Brazil-Flag-icon.png" style="width: 22px; height: 22px"></span>
             </div>
-            <input type="text" id="number" class="form-control" placeholder="" aria-label="number"
-                aria-describedby="basic-addon1">
+            <input type="text" id="number" class="form-control" placeholder="DDD + número sem o dígito 9" aria-label="number"
+                aria-describedby="basic-addon1" pattern="[0-9]{2}[0-9]{8}" title="Apenas números DDD + número sem dígito 9">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -38,10 +38,10 @@
 
         $("#send").click(function () {
 
-            let number = $("#number").val();
+            let number = "55" + $("#number").val();
             let msg = $("#msg").val();
 
-            $("#loading").append('<img src="loading.gif" style="height: 50px">');
+            $("#loading").append('<img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="height: 150px">');
 
             (async () => {
                 const response = await fetch('http://localhost:3333/sendText', {
